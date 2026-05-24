@@ -1,0 +1,41 @@
+<!-- templates/albums/create.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Create Album</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    <p>
+
+        Title:
+
+        {{ form.title }}
+
+    </p>
+
+    <br>
+
+    <p>
+
+        Image:
+
+        {{ form.image }}
+
+    </p>
+
+    <br>
+
+    <button type="submit">
+
+        Upload
+
+    </button>
+
+</form>
+
+{% endblock %}

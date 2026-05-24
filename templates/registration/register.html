@@ -1,0 +1,181 @@
+<!-- templates/registration/register.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container{
+            width:100%;
+            max-width:450px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .title{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .title h1{
+            color:#5a4fcf;
+            margin-top:10px;
+        }
+
+        .title p{
+            color:#777;
+            margin-top:8px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#444;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:10px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:focus{
+            border-color:#5a4fcf;
+            box-shadow:0 0 8px rgba(90,79,207,0.3);
+        }
+
+        .btn{
+            width:100%;
+            padding:13px;
+            border:none;
+            border-radius:10px;
+            background:#5a4fcf;
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#4338ca;
+        }
+
+        .bottom-text{
+            text-align:center;
+            margin-top:20px;
+            color:#666;
+        }
+
+        .bottom-text a{
+            color:#5a4fcf;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .bottom-text a:hover{
+            text-decoration:underline;
+        }
+
+        .icon{
+            font-size:50px;
+            text-align:center;
+        }
+
+        .error{
+            color:red;
+            margin-top:5px;
+            font-size:14px;
+        }
+
+        ul{
+            list-style:none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="title">
+
+            <div class="icon">📸</div>
+
+            <h1>Create Account</h1>
+
+            <p>Join the Photo Album System</p>
+
+        </div>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            {% for field in form %}
+
+                <div class="form-group">
+
+                    {{ field.label_tag }}
+
+                    {{ field }}
+
+                    {% if field.errors %}
+                        <div class="error">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+            <button type="submit" class="btn">
+                Register
+            </button>
+
+        </form>
+
+        <div class="bottom-text">
+
+            Already have an account?
+
+            <a href="/login/">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
