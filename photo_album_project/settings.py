@@ -47,14 +47,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'photo_album_project.urls'
@@ -105,12 +105,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'doaj9s1ef',
-    'API_KEY': '387521728484571',
-    'API_SECRET':
-      'fVKqkTDaolPRYxm4R0NAz_9C7zY',
-}
+cloudinary.config(
+    cloud_name='doaj9s1ef',
+    api_key='944168265422374',
+    api_secret='yniTfd0pQatW3wJuxcoImBbDA0g',
+    secure=True
+)
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
