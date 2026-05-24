@@ -106,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 cloudinary.config(
-    cloud_name='doaj9s1ef',
-    api_key='944168265422374',
-    api_secret='yniTfd0pQatW3wJuxcoImBbDA0g',
+    CLOUDINARY_API_KEY='CLOUDINARY_API_KEY',
+    CLOUDINARY_API_SECRET='CLOUDINARY_API_SECRET',
+    CLOUDINARY_API_SECRET='CLOUDINARY_API_SECRET',
     secure=True
 )
 
