@@ -1,1 +1,1 @@
-web: gunicorn config.wsgi
+web: gunicorn photo_album_project.wsgi
